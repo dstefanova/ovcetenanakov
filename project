@@ -1,0 +1,145 @@
+using System;
+
+namespace CountingSheeps
+{
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            //define numbers
+
+            const int randomMinValue = 1;
+            const int randomMaxValue = 10;
+            int countOfLives = 2;           //firstly defined lives
+            int countOfSheep = 1;           //n of sheep
+            float Points = 0;
+            string intro =
+                "TODO";
+            Console.WriteLine(intro);
+            while (countOfLives > 0 && Points < 10)
+            {
+                //LEVEL 1
+
+                Console.WriteLine("LEVEL 0: Fundamental level");
+                Random randomGenerator = new Random();
+                int plus = randomGenerator.Next(randomMinValue, randomMaxValue);    //random generator from min(1) to max(10)
+                Console.WriteLine("{0} + {1} = ?", countOfSheep, plus); //sums up N of sheep and a random number
+                int input = Convert.ToInt32(Console.ReadLine(), 2); //binary num entered by the user
+
+                //tuka moje da slojim checker dali e binary number, zashtoto garmi ako izpishesh in decimal
+
+                countOfSheep += plus;       //sums up the new  N of sheep and a random number
+
+                if (input != countOfSheep)
+                {
+                    countOfLives--;
+                    Points--;
+                    Console.WriteLine("Wrong! The right answer is {0}. You left with {1}", Convert.ToString(countOfSheep, 2), new string('\u2665', countOfLives));
+                }
+                else
+                {
+                    countOfLives += 1;
+                    Points = Points + 1;
+
+                }
+
+                //end of level one
+            }
+            while (countOfLives > 0 && Points < 20 && Points>9)
+            {
+                if (Points > 1 && countOfLives > 0)
+                {
+                    Console.WriteLine("Congrats! You levelled up! ");
+                    Console.WriteLine("LEVEL 2: Basic level. Now you need to count in hexadecimal");
+                    Random randomGenerator1 = new Random();
+                    int plus1 = randomGenerator1.Next(randomMinValue, randomMaxValue);    //random generator from min(1) to max(10)
+                    Console.WriteLine("{0} + {1} = ?", countOfSheep, plus1); //sums up N of sheep and a random number
+                    countOfSheep += plus1;
+                    string value = Console.ReadLine();
+                    int hexvalue = Convert.ToInt32(value, 16);
+                    if (hexvalue != countOfSheep)
+                    {
+                        countOfLives--;
+                        Points--;
+                        Console.WriteLine("Wrong! The right answer is {0}. You left with {1}", Convert.ToString(countOfSheep, 2), new string('\u2665', countOfLives));
+                    }
+                    else
+                    {
+                        countOfLives += 1;
+                        Points = Points + 1;
+
+                    }
+
+                }
+                //end of level 2
+
+            }
+
+            //LEVEL 3
+            while (countOfLives > 0  && Points >19)
+            {
+                if (countOfLives > 0 && Points > 19)
+                {
+
+                    Console.WriteLine("Congrats! You levelled up! ");
+                    Console.WriteLine("LEVEL 3: TO BINARY"); //   TO BE DESCRIBED
+                    Random randomGenerator1 = new Random();
+                    int plus1 = randomGenerator1.Next(randomMinValue, randomMaxValue);    //random generator from min(1) to max(10)
+                    Console.WriteLine("{0} + {1} = ?", countOfSheep, plus1); //sums up N of sheep and a random number
+                    countOfSheep += plus1;
+                    string value = Console.ReadLine();
+                    int hexvalue = Convert.ToInt32(value, 2);
+                    if (hexvalue != countOfSheep)
+                    {
+                        countOfLives--;
+                        Points--;
+                        Console.WriteLine("Wrong! The right answer is {0}. You left with {1}", Convert.ToString(countOfSheep, 2), new string('\u2665', countOfLives));
+                    }
+                    else
+                    {
+                        countOfLives += 1;
+                        Points = Points + 1;
+
+                    }
+
+                    if (countOfLives > 0 && Points > 19)
+                    {
+
+                        Console.WriteLine("Congrats! You levelled up! ");
+                        Console.WriteLine("LEVEL 3: ..............."); //   TO BE DESCRIBED
+                        Random randomGenerator = new Random();
+                        int plus = randomGenerator.Next(randomMinValue, randomMaxValue);    //random generator from min(1) to max(10)
+                        Console.WriteLine("{0} + {1} = ?", countOfSheep, plus1); //sums up N of sheep and a random number
+                        countOfSheep += plus1;
+                        string value1 = Console.ReadLine();
+                        int hexvalue1 = Convert.ToInt32(value1, 16);
+                        if (hexvalue1 != countOfSheep)
+                        {
+                            countOfLives--;
+                            Points--;
+                            Console.WriteLine("Wrong! The right answer is {0}. You left with {1}", Convert.ToString(countOfSheep, 2), new string('\u2665', countOfLives));
+                        }
+                        else
+                        {
+                            countOfLives += 1;
+                            Points = Points + 1;
+
+                        }
+                    }
+
+                
+
+            }
+
+
+
+        }
+
+
+
+        Console.WriteLine("You loose. Nakov is angry now and he cant fall asleep!");
+        }
+    }
+}
